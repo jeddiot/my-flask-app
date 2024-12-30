@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="jumbotron text-center py-5 bg-light shadow-sm rounded">
+        <!-- {% if current_user.is_authenticated %}
+        <p>Welcome back {{current_user.username}}</p>
+        {% else %}
+        <p>Please click the Register button on the navigation panel.</p>
+        <p>If you already have an account, please click Log In.</p>
+        {% endif %} -->
+        {% if current_user.is_authenticated %}
+        <h1 class="display-5 fw-bold">Welcome back, {{ current_user.username }}!</h1>
+        <p class="lead text-muted">We're glad to have you here.</p>
+        {% else %}
+        <h1 class="display-5 fw-bold">Welcome to Jedd's User Authentication Page!</h1>
+        <p class="lead">Please click the <a href="{{ url_for('register') }}" class="btn btn-outline-primary btn-sm">Register</a> button to sign up.</p>
+        <p class="lead">Already have an account? Click <a href="{{ url_for('login') }}" class="btn btn-outline-success btn-sm">Log In</a>.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

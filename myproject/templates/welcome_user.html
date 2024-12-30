@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- <div class="jumbotron">
+    <p>Congratulations, You're now logged in.</p>
+</div> -->
+<div class="container mt-5">
+    <div class="jumbotron text-center py-5 bg-light shadow-sm rounded">
+        <h1 class="display-5 fw-bold">Congratulations, {{ current_user.username }}!</h1>
+        <p class="lead text-muted">You're now logged in.</p>
+    </div>
+</div>
+{% endblock %}
