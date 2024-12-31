@@ -10,7 +10,8 @@ app = Flask(__name__) # __name__ is the name of the current Python module (a fol
 
 app.config['SECRET_KEY'] = 'mysecretkey' # used for securely signing the session cookie
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite') # https://flask-sqlalchemy.readthedocs.io/en/stable/config/
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
